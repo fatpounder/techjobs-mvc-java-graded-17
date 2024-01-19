@@ -10,9 +10,38 @@
 
   <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
-  <!-- TODO #1 - Use a loop to display job results in a table. -->
+  <!--Use a loop to display job results in a table:ID,name,employer,location,positionType,coreCompetency-->
+    <!--utilize devtools on example web page to get formatting correct, each entity of info is its own td-->
+    <!-- TODO Also call fragment here -->
 
+    <table th:each="job : ${jobs}" class="job-listing">  <!--iterating through jobs to make the table-->
+
+        <tr> <!--each label and its info will be on its own row -->
+          <td>ID</td>
+          <td th:text=${job.id}></td> <!--data cells holding the dynamically displayed data-->
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td th:text=${job.name}></td>
+        </tr>
+        <tr>
+          <td>Employer</td>
+          <td th:text=${job.employer}></td>
+        </tr>
+        <tr>
+          <td>Location</td>
+          <td th:text=${job.location}></td>
+        </tr>
+        <tr>
+          <td>Position Type</td>
+          <td th:text=${job.positionType}></td>
+        </tr>
+        <tr>
+          <td>Skill</td>
+          <td th:text=${job.coreCompetency}></td>
+        </tr>
+
+    </table>
 </div>
-
 </body>
 </html>
