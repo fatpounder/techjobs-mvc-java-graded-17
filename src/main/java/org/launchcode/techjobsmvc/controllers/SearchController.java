@@ -30,7 +30,7 @@ public class SearchController {
     //Create a handler to process a search request and render the updated search view.
         //Use PostMapping because takes into account data provided
 
-    @PostMapping(value = "results")
+    @PostMapping(value = "results")  //at the results path
     public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm) {
         ArrayList<Job> jobs; //storing results in a jobs ArrayList
         if (searchTerm.equals("all")) {  //If the search term is "all" then call findAll() for the job data
@@ -44,9 +44,8 @@ public class SearchController {
         else {
             jobs = JobData.findByColumnAndValue(searchType, searchTerm);
             model.addAttribute("title", "Jobs with " + searchType + ": " + searchTerm);
-        } //otherwise
+        } //otherwise search with the parameters to return appropriate data
 
-        //model.addAttribute("type", searchType);
         model.addAttribute("jobs", jobs); //passing in jobs into the view
         model.addAttribute("columns", columnChoices); //pass the columnChoices into the view
         return "search";
