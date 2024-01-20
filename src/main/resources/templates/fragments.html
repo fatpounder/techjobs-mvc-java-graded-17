@@ -29,6 +29,7 @@
 <!--fragment made to not repeat code-->
 <!--Use a loop to display job results in a table:ID,name,employer,location,positionType,coreCompetency-->
 <!--utilize devtools on example web page to get formatting correct, each entity of info is its own td-->
+<!--Thymeleaf doc suggests th:block with iterated tables with more than one <tr>-->
     <th:block th:fragment="loopOverJobs">
         <table th:each="job : ${jobs}" class="job-listing"> <!--iterating through jobs to make the table-->
 
